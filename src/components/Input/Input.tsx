@@ -1,4 +1,5 @@
 import { InputContainer, Label, StyledInput } from "./style"
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     labelFor: string
@@ -10,7 +11,7 @@ export const Input:React.FC<Props> = ({type, labelFor}) =>{
     return(
         <InputContainer>  
             <Label htmlFor="1">{labelFor}</Label>
-            <StyledInput id={"1"} type={type}/>
+            <StyledInput id={uuidv4()} type={type}/>
         </InputContainer>
     )
 }

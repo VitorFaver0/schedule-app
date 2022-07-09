@@ -18,7 +18,7 @@ export const Content:React.FC = () =>{
                         encerrar o aviso.
                     </p>
                 </ContentSectionContainer>
-                <Image src="/landing-page-agenda.jpg" height={400} width={700} alt="Imagem ilustrativa de uma agenda"/>
+                <Image src="/undraw_online_calendar_re_wk3t.svg" height={400} width={700} alt="Imagem ilustrativa de uma agenda"/>
             </SectionContainer>
             <SectionContainer>
                 <ContentSectionContainer>

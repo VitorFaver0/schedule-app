@@ -1,10 +1,16 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Content } from '../components/Content/Content';
-import { Footer } from '../components/Footer/Footer';
-import { Header } from '../components/Header/Header';
+import Router from 'next/router'
+import { Content } from '../components/Content/Content'
+import { Footer } from '../components/Footer/Footer'
+import { Header } from '../components/Header/Header'
+import { useAuth } from '../contexts/AuthContext'
 
-const Home: NextPage = () => {
+const Index: NextPage = () => {
+  const {user} = useAuth()
+  if(user!=null)
+    Router.push('/home')
+
   return (
     <div style={{height:'100vh', width: '100vw'}}>
        <Head>
@@ -19,4 +25,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home;
+export default Index;
