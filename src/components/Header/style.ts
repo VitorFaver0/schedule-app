@@ -34,6 +34,7 @@ export const LogoConteiner = styled.div`
     h1{
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 1.7rem;
+        font-weight: bold;
     }
 
 `

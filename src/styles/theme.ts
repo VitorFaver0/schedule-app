@@ -5,7 +5,8 @@ const theme = {
       darkText: '#3f3d56',
       primary: '#01579b',
       secondary: '#0277bd',
-      terceary: '#03a9f4'
+      terceary: '#03a9f4',
+      white: '#fafafa'
     }
   }
   
