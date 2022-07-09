@@ -14,7 +14,7 @@ export default createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${props => props.theme.colors.ligthBackground};
-    color: ${props => props.theme.colors.ligthText};
+    background: ${props => props.theme.colors.ligthText};
+    color: ${props => props.theme.colors.darkText};
   }
 `

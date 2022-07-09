@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import tw from "tailwind-styled-components"
 
 export const Container = styled.div`
   width: 100vw;
@@ -15,3 +16,4 @@ export const Container = styled.div`
     color: ${props => props.theme.colors.darkText};
   }
 `
+
