@@ -13,4 +13,3 @@ usuário solicitar que ele seja re-exibido após um certo período de tempo, ou 
 - React.JS
 - Styled-Coponents
 - Nookies
-- Tailwind CSS
