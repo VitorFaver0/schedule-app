@@ -4,34 +4,56 @@ import { Button } from "../../Button/Button"
 import { LoginButtonContainer, StyledForm, InputContainer} from "./style"
 import TextField from '@mui/material/TextField';
 import { Alert } from "@mui/material";
+import { passwordStrength } from "../../../common/utils/passwordStrength";
+import { useAuth } from "../../../contexts/AuthContext";
 
-interface signUpData {
-    email: string
-    password: string
-}
 
 export const Form:React.FC = () => {
     const {handleSubmit, register} = useForm()
     const [password, setPassword] = useState("")
+    const [alert, setAlert] = useState(<></>)
+    const [validPass, setValidPass] = useState(false)
+    const {UserRegister} = useAuth()  
 
     async function handleSignUp(data:signUpData) {
-        console.log(data)
+        if(validPass)
+            console.log(UserRegister(data.email, data.password))
     }
 
     function handlePassword(e:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>){
         e.target.value = e.target.value.trim()   
-        if(e.target.value.trim().length>0)
-            setPassword(e.target.value)
-        else
+        if(e.target.value.trim().length>0){
+            if(passwordStrength(e.target.value)){
+                setPassword(e.target.value)
+                setAlert(<></>)
+            }
+            else
+                setAlert(<Alert severity="warning">
+                            A senha deve ter entre 6 e 16 caracteres, ao menos uma letra maiúscula e uma minúscula, um número e um símbolo.
+                        </Alert>)
+        }
+        else{
             setPassword("")
+            setAlert(<></>)
+        }
     }
 
     function handleRepeatPassword(e:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>){
         e.target.value = e.target.value.trim()   
-        if(e.target.value.trim().length>0)
-            setPassword(e.target.value)
+        if(e.target.value.trim().length>0){
+            if(e.target.value==password){
+                setValidPass(true)
+                setAlert(<></>)
+            }
+            else{
+                setAlert(<Alert severity="warning">
+                            As senhas não conferem.
+                        </Alert>)
+                setValidPass(false)
+            }
+        }
         else
-            setPassword("")
+            setValidPass(false)
     }
 
     return(
@@ -68,12 +90,12 @@ export const Form:React.FC = () => {
                         autoComplete="current-password"
                         variant="standard"
                         required
-                        onChange={(e) => handlePassword(e)}                        
+                        onChange={(e) => handleRepeatPassword(e)}                        
                     />
                 :
                     <></>
                 }
-                <Alert severity="warning">This is a warning alert — check it out!</Alert>
+                {alert}
             </InputContainer>
             <LoginButtonContainer>
                 <Button type="submit">

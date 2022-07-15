@@ -9,6 +9,11 @@ declare global {
         loginWithGoogle: Function
         loginWithFacebook: Function
         login: Function
-        register: Function
+        UserRegister: Function
     }
+    interface signUpData {
+        email: string
+        password: string
+    }
+    
 }

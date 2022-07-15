@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const StyledForm = styled.form`
+    width:350px;
+    max-width: 350px;
     border: solid 0.4px ${props => props.theme.colors.ligthBackground};
     padding: 32px;
     border-radius:12px;
