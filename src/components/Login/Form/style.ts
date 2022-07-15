@@ -50,3 +50,9 @@ export const StyledLogoContainer = styled.div`
     background: ${props => props.theme.colors.white};
     border-radius: 8px;
 `
+export const InputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+`
