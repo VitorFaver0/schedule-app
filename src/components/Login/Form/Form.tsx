@@ -22,6 +22,8 @@ export const Form:React.FC = () => {
             const errorMessage = error.message;
             if(error.code==="auth/wrong-password")
                 setAlert(<Alert severity="error">Senha incorreta!</Alert>)
+            else if(error.code==="auth/user-not-found")
+                setAlert(<Alert severity="error">Usuário não cadastrado</Alert>)
             throw errorCode;
         });
     }
@@ -30,7 +32,7 @@ export const Form:React.FC = () => {
         <StyledForm onSubmit={handleSubmit(handleSignIn)}>
             <InputContainer>
                 <TextField
-                        id="standard-password-input"
+                        id="email"
                         label="Email"
                         type="email"
                         name="email"
@@ -40,7 +42,7 @@ export const Form:React.FC = () => {
                         required          
                     />
                 <TextField
-                    id="standard-password-input"
+                    id="password"
                     label="Password"
                     type="password"
                     name="password"

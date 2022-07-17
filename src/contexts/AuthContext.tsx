@@ -21,15 +21,16 @@ interface Props {
 export function AuthContextProvider({ children }:Props) {
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
-  console.log(user)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user)
       if (user) {
         setUser({
           uid: user.uid,
           email: user.email,
           displayName: user.displayName,
+          avatarUrl: user.photoURL
         })
       } else {
         setUser(null)

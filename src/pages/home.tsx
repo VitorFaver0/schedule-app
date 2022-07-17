@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Router from "next/router";
 import { Button } from "../components/Button/Button";
+import ResponsiveAppBar from "../components/ResponsiveAppBar/ResponsiveAppBar";
 import { useAuth } from "../contexts/AuthContext";
 
 const Index: NextPage = () => {
@@ -14,7 +15,7 @@ const Index: NextPage = () => {
               <meta name="description" content="Clock - First is an application to control and determine the time for your tasks" />
               <link rel="icon" href="/favicon.ico" />
           </Head>
-          <Button onClick={()=> logout()}>Logout</Button>
+          <ResponsiveAppBar/>
         </div>
       )
     }
